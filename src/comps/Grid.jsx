@@ -26,7 +26,7 @@ const Grid = (props) => {
 
 	const getDirection = (one, two) => {
 		if (one === two + 1) return '⬅';
-		else if (one === two - 1) return '➡️';
+		else if (one === two - 1) return '➡';
 		else if (one === two + dim) return '⬆';
 		else if (one === two - dim) return '⬇';
 	};
