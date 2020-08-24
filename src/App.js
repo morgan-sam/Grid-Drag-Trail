@@ -7,7 +7,7 @@ function App() {
 	return (
 		<div className="app">
 			<Grid dim={8} cells={cells} setCells={setCells} />
-			<button onClick={() => setCells([])}>Reset</button>
+			<button className='btn' onClick={() => setCells([])}>Reset</button>
 		</div>
 	);
 }
