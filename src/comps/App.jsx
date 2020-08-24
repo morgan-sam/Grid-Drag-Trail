@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../css/App.css';
-import Grid from './Grid';
+import 'css/App.css';
+import Grid from 'comps/Grid.jsx';
 
 function App() {
 	const [ cells, setCells ] = useState([]);
