@@ -1,30 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import 'css/Grid.css';
 
 const Grid = (props) => {
 	const { dim, cells, setCells } = props;
 	const [ drag, setDrag ] = useState([ null, null, null ]);
-	const SQUARE_SIZE_REM = 3;
-
-	const squareStyle = {
-		width: `${SQUARE_SIZE_REM}rem`,
-		height: `${SQUARE_SIZE_REM}rem`,
-		border: '1px solid black',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		userSelect: 'none',
-		cursor: 'pointer'
-	};
-
-	const gridStyle = {
-		margin: '5rem',
-		display: 'grid',
-		width: `${dim * SQUARE_SIZE_REM}rem`,
-		height: `${dim * SQUARE_SIZE_REM}rem`,
-		gridTemplateColumns: `repeat(${dim}, 1fr)`,
-		gridTemplateRows: `repeat(${dim}, 1fr)`,
-		gridGap: '0'
-	};
 
 	const addSymbols = (array) => {
 		let copy = [ ...cells ];
@@ -36,7 +15,6 @@ const Grid = (props) => {
 		<div
 			className='cell'
 			key={index}
-			style={squareStyle}
 			onMouseDown={() => setDrag([ null, null, index ])}
 			onMouseOver={(e) => {
 				if (e.buttons === 1) setDrag([ drag[1], drag[2], index ]);
@@ -85,7 +63,7 @@ const Grid = (props) => {
 	};
 
 	return (
-		<div className="grid" style={gridStyle}>
+		<div className="grid">
 			{genGrid(dim)}
 		</div>
 	);

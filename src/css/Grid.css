@@ -1,7 +1,25 @@
+:root{
+    --dimension: 8;
+    --cell-size: 3rem;
+}
+
 .grid {
-    /* / */
+    margin: 5rem;
+    display: grid;
+    width: calc(var(--dimension) * var(--cell-size));
+    height: calc(var(--dimension) * var(--cell-size));
+    grid-template-columns: repeat(var(--dimension), 1fr);
+    grid-template-rows: repeat(var(--dimension), 1fr);
+    grid-gap: 0;
 }
 
 .cell {
-    /* / */
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+    user-select: 'none';
+    cursor: 'pointer';
 }
