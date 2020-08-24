@@ -54,6 +54,7 @@ const Grid = (props) => {
 	);
 
 	const genGrid = (dim) => {
+		document.documentElement.style.setProperty('--dimension', dim);
 		return [ ...Array(dim) ].map((x, a) =>
 			[ ...Array(dim) ].map((x, b) => {
 				const i = b + a * dim;
