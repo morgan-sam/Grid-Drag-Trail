@@ -32,8 +32,9 @@ const Grid = (props) => {
 		setCells(copy);
 	};
 
-	const square = (index) => (
+	const cell = (index) => (
 		<div
+			className='cell'
 			key={index}
 			style={squareStyle}
 			onMouseDown={() => setDrag([ null, null, index ])}
@@ -78,13 +79,13 @@ const Grid = (props) => {
 		return [ ...Array(dim) ].map((x, a) =>
 			[ ...Array(dim) ].map((x, b) => {
 				const i = b + a * dim;
-				return square(i);
+				return cell(i);
 			})
 		);
 	};
 
 	return (
-		<div className="Grid" style={gridStyle}>
+		<div className="grid" style={gridStyle}>
 			{genGrid(dim)}
 		</div>
 	);
