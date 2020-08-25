@@ -31,14 +31,16 @@ const Grid = (props) => {
 	};
 
 	const getPenultimateDragDirection = (drag) => {
-		if (getDirection(drag[0], drag[1]) === '⬆' && getDirection(drag[1], drag[2]) === '➡️') return '⬈';
-		else if (getDirection(drag[0], drag[1]) === '⬆' && getDirection(drag[1], drag[2]) === '⬅') return '⬉';
-		else if (getDirection(drag[0], drag[1]) === '➡️' && getDirection(drag[1], drag[2]) === '⬆') return '⬈';
-		else if (getDirection(drag[0], drag[1]) === '➡️' && getDirection(drag[1], drag[2]) === '⬇') return '⬊';
-		else if (getDirection(drag[0], drag[1]) === '⬇' && getDirection(drag[1], drag[2]) === '➡️') return '⬊';
-		else if (getDirection(drag[0], drag[1]) === '⬇' && getDirection(drag[1], drag[2]) === '⬅') return '⬋';
-		else if (getDirection(drag[0], drag[1]) === '⬅' && getDirection(drag[1], drag[2]) === '⬆') return '⬉';
-		else if (getDirection(drag[0], drag[1]) === '⬅' && getDirection(drag[1], drag[2]) === '⬇') return '⬋';
+		const lastDrag = getDirection(drag[1], drag[2]);
+		const penultimateDrag = getDirection(drag[0], drag[1]);
+		if (penultimateDrag === '⬆' && lastDrag === '➡️') return '⬈';
+		else if (penultimateDrag === '⬆' && lastDrag === '⬅') return '⬉';
+		else if (penultimateDrag === '➡️' && lastDrag === '⬆') return '⬈';
+		else if (penultimateDrag === '➡️' && lastDrag === '⬇') return '⬊';
+		else if (penultimateDrag === '⬇' && lastDrag === '➡️') return '⬊';
+		else if (penultimateDrag === '⬇' && lastDrag === '⬅') return '⬋';
+		else if (penultimateDrag === '⬅' && lastDrag === '⬆') return '⬉';
+		else if (penultimateDrag === '⬅' && lastDrag === '⬇') return '⬋';
 	};
 
 	// ⬈⬉⬊⬋
