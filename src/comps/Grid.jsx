@@ -32,11 +32,7 @@ const Grid = (props) => {
 
 	const getPenultimateDragDirection = (drag) => {
 		const lastDrag = getDirection(drag[1], drag[2]);
-		const penultimateDrag = getDirection(drag[0], drag[1]);
-
-		console.log(`lastDrag: ${lastDrag}`)
-		console.log(`penultimateDrag: ${penultimateDrag}`)
-		
+		const penultimateDrag = getDirection(drag[0], drag[1]);		
 		if (penultimateDrag === lastDrag) return lastDrag;
 		else if (penultimateDrag === 0 && lastDrag === 2) return 1;
 		else if (penultimateDrag === 0 && lastDrag === 6) return 7;
