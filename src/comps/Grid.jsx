@@ -43,11 +43,18 @@ const Grid = (props) => {
 
 	// ⬈⬉⬊⬋
 
+	const checkIfFirstDrag = () => drag.filter((el) => el === null).length === 1;
+
 	useEffect(
 		() => {
 			const last = getDirection(drag[1], drag[2]);
 			const penultimate = getPenultimateDragDirection(drag);
-			addSymbols([ { index: drag[1], symbol: penultimate }, { index: drag[2], symbol: last } ]);
+
+			if (checkIfFirstDrag()) {
+				addSymbols([ { index: drag[1], symbol: last }, { index: drag[2], symbol: last } ]);
+			} else {
+				addSymbols([ { index: drag[1], symbol: penultimate }, { index: drag[2], symbol: last } ]);
+			}
 		},
 		[ drag ]
 	);
