@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'css/Grid.css';
 
 const Grid = (props) => {
-	const { dim, cells, setCells } = props;
-	const [ drag, setDrag ] = useState([ null, null, null ]);
+	const { dim, cells, setCells, drag, setDrag } = props;
 
 	const addSymbols = (array) => {
 		let copy = [ ...cells ];
