@@ -11,7 +11,10 @@ function App() {
 		<div className='app'>
 			<div className="grid-and-btn">
 				<Grid {...{dim, drag, setDrag, cells, setCells}} />
-				<button className='btn' onClick={() => setCells([])}>Reset</button>
+				<div className='btn-container'>
+					<button className='btn' onClick={() => setCells([])}>Reset</button>
+					<button className='btn' onClick={() => null}>Null</button>
+				</div>
 			</div>
 		</div>
 	);
