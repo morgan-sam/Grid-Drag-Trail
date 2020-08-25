@@ -19,15 +19,15 @@ const Grid = (props) => {
 				if (e.buttons === 1) setDrag([ drag[1], drag[2], index ]);
 			}}
 		>
-			{cells[index]}
+			{dirToSymbol(cells[index])}
 		</div>
 	);
 
 	const getDirection = (one, two) => {
-		if (one === two + 1) return '6';
-		else if (one === two - 1) return '2';
-		else if (one === two + dim) return '0';
-		else if (one === two - dim) return '4';
+		if (one === two + 1) return 6;
+		else if (one === two - 1) return 2;
+		else if (one === two + dim) return 0;
+		else if (one === two - dim) return 4;
 	};
 
 	const getPenultimateDragDirection = (drag) => {
@@ -36,17 +36,31 @@ const Grid = (props) => {
 
 		console.log(`lastDrag: ${lastDrag}`)
 		console.log(`penultimateDrag: ${penultimateDrag}`)
-
-		if (penultimateDrag === '0' && lastDrag === '2') return '1';
-		else if (penultimateDrag === '0' && lastDrag === '6') return '7';
-		else if (penultimateDrag === '2' && lastDrag === '0') return '1';
-		else if (penultimateDrag === '2' && lastDrag === '4') return '3';
-		else if (penultimateDrag === '4' && lastDrag === '2') return '3';
-		else if (penultimateDrag === '4' && lastDrag === '6') return '5';
-		else if (penultimateDrag === '6' && lastDrag === '0') return '7';
-		else if (penultimateDrag === '6' && lastDrag === '4') return '5';
+		
+		if (penultimateDrag === 0 && lastDrag === 2) return 1;
+		else if (penultimateDrag === 0 && lastDrag === 6) return 7;
+		else if (penultimateDrag === 2 && lastDrag === 0) return 1;
+		else if (penultimateDrag === 2 && lastDrag === 4) return 3;
+		else if (penultimateDrag === 4 && lastDrag === 2) return 3;
+		else if (penultimateDrag === 4 && lastDrag === 6) return 5;
+		else if (penultimateDrag === 6 && lastDrag === 0) return 7;
+		else if (penultimateDrag === 6 && lastDrag === 4) return 5;
 	};
 
+
+	const dirToSymbol = (dir) => {
+		switch(dir) {
+			case 0: return '⬆';
+			case 1: return '⬈';
+			case 2: return '➡';
+			case 3: return '⬊';
+			case 4: return '⬇';
+			case 5: return '⬋';
+			case 6: return '⬅';
+			case 7: return '⬉';
+			default: return null
+		  }
+	}
 
 	const checkIfFirstDrag = (drag) => drag.filter((el) => el === null).length === 1;
 
