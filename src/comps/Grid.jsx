@@ -37,7 +37,8 @@ const Grid = (props) => {
 		console.log(`lastDrag: ${lastDrag}`)
 		console.log(`penultimateDrag: ${penultimateDrag}`)
 		
-		if (penultimateDrag === 0 && lastDrag === 2) return 1;
+		if (penultimateDrag === lastDrag) return lastDrag;
+		else if (penultimateDrag === 0 && lastDrag === 2) return 1;
 		else if (penultimateDrag === 0 && lastDrag === 6) return 7;
 		else if (penultimateDrag === 2 && lastDrag === 0) return 1;
 		else if (penultimateDrag === 2 && lastDrag === 4) return 3;
