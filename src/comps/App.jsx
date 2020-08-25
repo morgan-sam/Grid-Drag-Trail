@@ -13,9 +13,6 @@ function App() {
 				<Grid {...{dim, drag, setDrag, cells, setCells}} />
 				<button className='btn' onClick={() => setCells([])}>Reset</button>
 			</div>
-			<li className='move-list'>
-				{[ ...Array(20) ].map((x, i) => <li>{i}</li>)}
-			</li>
 		</div>
 	);
 }

@@ -15,9 +15,3 @@
 	width: 5rem;
 	padding: 0.3rem;
 }
-
-.move-list {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
