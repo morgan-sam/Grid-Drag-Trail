@@ -24,26 +24,29 @@ const Grid = (props) => {
 	);
 
 	const getDirection = (one, two) => {
-		if (one === two + 1) return '⬅';
-		else if (one === two - 1) return '➡';
-		else if (one === two + dim) return '⬆';
-		else if (one === two - dim) return '⬇';
+		if (one === two + 1) return '6';
+		else if (one === two - 1) return '2';
+		else if (one === two + dim) return '0';
+		else if (one === two - dim) return '4';
 	};
 
 	const getPenultimateDragDirection = (drag) => {
 		const lastDrag = getDirection(drag[1], drag[2]);
 		const penultimateDrag = getDirection(drag[0], drag[1]);
-		if (penultimateDrag === '⬆' && lastDrag === '➡️') return '⬈';
-		else if (penultimateDrag === '⬆' && lastDrag === '⬅') return '⬉';
-		else if (penultimateDrag === '➡️' && lastDrag === '⬆') return '⬈';
-		else if (penultimateDrag === '➡️' && lastDrag === '⬇') return '⬊';
-		else if (penultimateDrag === '⬇' && lastDrag === '➡️') return '⬊';
-		else if (penultimateDrag === '⬇' && lastDrag === '⬅') return '⬋';
-		else if (penultimateDrag === '⬅' && lastDrag === '⬆') return '⬉';
-		else if (penultimateDrag === '⬅' && lastDrag === '⬇') return '⬋';
+
+		console.log(`lastDrag: ${lastDrag}`)
+		console.log(`penultimateDrag: ${penultimateDrag}`)
+
+		if (penultimateDrag === '0' && lastDrag === '2') return '1';
+		else if (penultimateDrag === '0' && lastDrag === '6') return '7';
+		else if (penultimateDrag === '2' && lastDrag === '0') return '1';
+		else if (penultimateDrag === '2' && lastDrag === '4') return '3';
+		else if (penultimateDrag === '4' && lastDrag === '2') return '3';
+		else if (penultimateDrag === '4' && lastDrag === '6') return '5';
+		else if (penultimateDrag === '6' && lastDrag === '0') return '7';
+		else if (penultimateDrag === '6' && lastDrag === '4') return '5';
 	};
 
-	// ⬈⬉⬊⬋
 
 	const checkIfFirstDrag = (drag) => drag.filter((el) => el === null).length === 1;
 
